@@ -9,12 +9,10 @@ function exigirLogin()
 {
     if (!isset($_SESSION['usuario_id'])) {
 
-        $pastaProjeto = dirname(
-            dirname($_SERVER['SCRIPT_NAME'])
-        );
+        $nomeProjeto = basename(dirname(__DIR__));
 
         header(
-            'Location: ' . $pastaProjeto . '/login.php'
+            'Location: /' . $nomeProjeto . '/login.php'
         );
 
         exit;
