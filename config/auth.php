@@ -1,10 +1,22 @@
+
 <?php
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-function exigirLogin() {
+
+function exigirLogin()
+{
     if (!isset($_SESSION['usuario_id'])) {
-        header('Location: /vetcare_manutencao_djeniffer/login.php');
+
+        $pastaProjeto = dirname(
+            dirname($_SERVER['SCRIPT_NAME'])
+        );
+
+        header(
+            'Location: ' . $pastaProjeto . '/login.php'
+        );
+
         exit;
     }
 }
